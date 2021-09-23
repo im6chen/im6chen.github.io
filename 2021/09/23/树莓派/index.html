@@ -13,7 +13,7 @@
 
 
 
-<title>Hello World | Hey bro</title>
+<title>树莓派初始化 | Hey bro</title>
 
 
 
@@ -193,7 +193,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Hello World</h1>
+            <h1 class="post-title">树莓派初始化</h1>
             
                 <div class="post-meta">
                     
@@ -202,28 +202,33 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">2021-9-22&nbsp;&nbsp;15:02</a>
+                        Date: <a href="#">2021-9-23&nbsp;&nbsp;10:53</a>
                         </span>
                     
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/linux/">linux</a>
+                            
+                        </span>
                     
                 </div>
             
         </header>
 
         <div class="post-content">
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+            <h1 id="1-刷系统"><a href="#1-刷系统" class="headerlink" title="1. 刷系统"></a>1. 刷系统</h1><p>   Raspberry Pi Imager写入系统</p>
+<h1 id="2-添加ssh和config文件"><a href="#2-添加ssh和config文件" class="headerlink" title="2. 添加ssh和config文件"></a>2. 添加ssh和config文件</h1><h1 id="3-MAC-删除ssh-key"><a href="#3-MAC-删除ssh-key" class="headerlink" title="3. MAC 删除ssh key"></a>3. MAC 删除ssh key</h1><p>   终端输入：vi ~/.ssh/known_hosts</p>
+<p>   删除内容 : 保存退出</p>
+<h1 id="4-可以ssh到以后，换源"><a href="#4-可以ssh到以后，换源" class="headerlink" title="4. 可以ssh到以后，换源"></a>4. 可以ssh到以后，换源</h1><p>   <a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/help/raspbian/">https://mirror.tuna.tsinghua.edu.cn/help/raspbian/</a></p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 编辑 `/etc/apt/sources.list` 文件，删除原文件所有内容，用以下内容取代：</span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib rpi</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib rpi</span><br><span class="line"></span><br><span class="line"># 编辑 `/etc/apt/sources.list.d/raspi.list` 文件，删除原文件所有内容，用以下内容取代：</span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h1 id="5-打开vnc"><a href="#5-打开vnc" class="headerlink" title="5. 打开vnc"></a>5. 打开vnc</h1>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>   进入后选择Interfacing Options&gt;&gt;VNC&gt;&gt;Yes</p>
 
         </div>
 
@@ -233,7 +238,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://im6chen.github.io/2021/09/22/hello-world/">http://im6chen.github.io/2021/09/22/hello-world/</a></span>
+                        <span><a href="http://im6chen.github.io/2021/09/23/%E6%A0%91%E8%8E%93%E6%B4%BE/">http://im6chen.github.io/2021/09/23/%E6%A0%91%E8%8E%93%E6%B4%BE/</a></span>
                     </p>
                 
                 
@@ -251,6 +256,12 @@
                 <span>Tag(s):</span>
                 <span class="tag">
                     
+                    
+                        <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"># 树莓派</a>
+                    
+                        <a href="/tags/linux/"># linux</a>
+                    
+                        
                 </span>
             </div>
             <div>
@@ -261,8 +272,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/09/22/To-my-31/">To my 31</a>
+                <a class="prev" rel="prev" href="/2021/09/23/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2/">树莓派部署Aria2</a>
             
+            
+            <a class="next" rel="next" href="/2021/09/22/To-my-31/">To my 31</a>
             
         </section>
 
